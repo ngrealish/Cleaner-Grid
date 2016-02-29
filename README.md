@@ -29,7 +29,9 @@ Specify widths on containers (columns) in your row **_(optional)_**
 
 If you'd like to have a column have a specific width, add a percent class or pixel class:
 
-For Percent, use: "**pc-##**"
+For Percent, use: "**pc-##**" 
+
+> When using Percents, the number you use will always have a decimal place in the second position.  This renders `pc-100` as `10.0%`.  the maximum percentage you can use is `99.999~%`.  If you want the column to be 100%, do not specify a width and only allow a single column.  Another example is if you'd like `33.333%`, you would use `pc-33333`.  
 
 For Pixels, use: "**px-##**"
 
@@ -54,3 +56,5 @@ Example:
 **You must make sure that you do not go over 100%.** Strange things will happen to your placement.  You can use this inside of a row, inside of a column, inside of a column's column, etc. 
 
 Note: Possibly a pure Javascript version coming.  Not sure how much traction this will gain.
+
+Note: Possible responsive version, allowing for breakpoints coming.
