@@ -4,32 +4,49 @@ $.fn.CleanerGrid = function() {
         var numRows = $(this).children().length;
 		var numWidthRows = 0;
 		var totalPercent = 0;
-		var classes, percent, pixels, totalWidth, child;
-		$(this).children().each(function(){
+		var totalWidth = $(this).width();
+		var classes, percent, pixels;
+		$(this).children().each(function(){ 
 			classes = $(this).attr('class').split(" ");
 			for(var i = 0; i < classes.length; i++){
 				if(/^pc-/.test(classes[i])){
 					percent = parseFloat(("."+classes[i].replace("pc-", ""))*100).toFixed(5);
 					numWidthRows++;
+					$(this).css({"width":percent+"%"});
 				} else if(/^px-/.test(classes[i])){
 					pixels = classes[i].replace("px-", "");
-					totalWidth = $(this).parent().width();
-					percent = parseFloat((pixels/totalWidth)*100).toFixed(5);
+					percent = pixels/totalWidth;
 					numWidthRows++;
+					$(this).css({"width":pixels+"px"});
 				} else {
 					percent = 0;	
 				}
 				totalPercent = (parseFloat(totalPercent) + parseFloat(percent));
 			}
-			$(this).css({"width":percent+"%"});
-			if(!percent) {
-				$(this).addClass("noWidth");	
-			}
 		});
-		remainingPercent = (100-totalPercent)/(numRows - numWidthRows);
-		$(this).find('.noWidth').each(function(){
-			$(this).css({"width":remainingPercent+"%"});
-			$(this).removeClass('noWidth');
+		console.log(totalPercent);
+		remainingPercent = (100-totalPercent)/(numRows-numWidthRows);
+		$(this).children().each(function(){
+			var styles = $(this).attr('style');
+			var hasWidth = false;
+			if(!styles){
+				console.log($(this), "has a style");	
+				$(this).css({"width":remainingPercent+"%"});	
+			} else {
+				styles = styles.split(";");
+				for(var i = 0; i < styles.length-1; i++){
+					var style = styles[i].split(":")[0].trim();
+					if(style === "width"){
+						hasWidth = true;	
+						i = styles.length+1;
+					} else {
+						hasWidth = false;
+					}
+				}
+				if(hasWidth === false){
+					$(this).css({"width":remainingPercent+"%"});	
+				}
+			}
 		});
     });
 };
