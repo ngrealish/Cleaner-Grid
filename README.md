@@ -15,9 +15,12 @@ $(function(){
 });
 ```
 
-Make sure your columns are floated.  It has been left out of the javascript for responsive solutions.  In the responsive world, sometimes you will want to float something to the right on a desktop view because you want it to be above other elements in a mobile view.  **Make sure you float your columns properly.** If you do not need to worry about specific floats, just add float:left to your columns:
+Make sure your columns are floated.  It has been left out of the javascript for responsive solutions.  In the responsive world, sometimes you will want to float something to the right on a desktop view because you want it to be above other elements in a mobile view.  **Make sure you float your columns properly.** If you do not need to worry about specific floats, just add float:left to your columns.  Also to get all columns to be the same height, use `display:flex;` on the desired row.
 
 ```css
+.your-row {
+  display:flex;
+}
 .your-row > * {
   float:left;
 }

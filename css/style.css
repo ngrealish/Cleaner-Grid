@@ -12,7 +12,13 @@ main {
     margin:0 auto;
     background-color:white;
 }
+.cleaner-grid {
+    display:flex;
+}
 .cleaner-grid > * {
     float:left;
     border:1px solid #ccc;
+}
+.cleaner-grid > .cleaner-grid > * {
+    border:1px solid red;
 }
