@@ -1,11 +1,12 @@
 # Cleaner-Grid
-### A javascript grid system allowing for any size column inside of any size column.
+### A jquery grid system which replaces traditional css classes
 
 _Usage_
 
-First, Download and Link Cleaner Grid into your project</p>
+First, Download and Link Cleaner Grid into your project under jQuery
 ```HTML
-<script type="text/javascript" src="/path/to/cleaner-grid.js"></script>
+<script type="text/javascript" src="path/to/jquery-#.#.#.js"></script>
+<script type="text/javascript" src="path/to/cleaner-grid.js"></script>
 ```
 On Document Ready, initiate Cleaner Grid on any row containing columns:
 ```javascript  
@@ -50,4 +51,6 @@ Example:
   4.5653% / 3 (number of columns that do not have percentages) = 1.52174% --> 
 ```
 
-**You must make sure that you do not go over 100%.** Strange things will happen to your placement.  You are able to use this 
+**You must make sure that you do not go over 100%.** Strange things will happen to your placement.  You can use this inside of a row, inside of a column, inside of a column's column, etc. 
+
+Note: Possibly a pure Javascript version coming.  Not sure how much traction this will gain.
