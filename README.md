@@ -1,4 +1,4 @@
-# Cleaner-Grid
+<h1># Cleaner-Grid</h1>
 A javascript grid system allowing for any size column inside of any size column.
 
 Use:
