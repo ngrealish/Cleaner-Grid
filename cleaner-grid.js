@@ -15,7 +15,7 @@ $.fn.CleanerGrid = function() {
 					$(this).css({"width":percent+"%"});
 				} else if(/^px-/.test(classes[i])){
 					pixels = classes[i].replace("px-", "");
-					percent = pixels/totalWidth;
+					percent = (pixels/totalWidth)*100;
 					numWidthRows++;
 					$(this).css({"width":pixels+"px"});
 				} else {
